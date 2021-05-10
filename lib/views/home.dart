@@ -24,6 +24,13 @@ class HomeView extends StatelessWidget {
               Get.toNamed('images');
             },
           ),
+          _listItem(
+            title: 'Sign In',
+            icon: Icons.people,
+            onTap: () {
+              Get.toNamed('signIn');
+            },
+          ),
         ],
       ),
     );
