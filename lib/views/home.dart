@@ -10,25 +10,46 @@ class HomeView extends StatelessWidget {
     print('build home');
     BottomNavBarController navBarController = Get.put(BottomNavBarController());
     return Scaffold(
-      appBar: AppBar(
-        title: Obx(
-          () => Text(
-            navBarController.titleView.value,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 8.0,
+                  vertical: 15.0,
+                ),
+                child: Obx(
+                  () => Text(
+                    navBarController.titleView.value,
+                    style: TextStyle(
+                      color: Colors.blue[900],
+                      fontSize: 40,
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Obx(
+                  () => IndexedStack(
+                    index: navBarController.indexView.value,
+                    children: [
+                      _widgets(),
+                      _package(),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
-        ),
-      ),
-      body: Obx(
-        () => IndexedStack(
-          index: navBarController.indexView.value,
-          children: [
-            _widgets(),
-            _package(),
-          ],
         ),
       ),
       bottomNavigationBar: ConvexAppBar(
         onTap: (int index) => navBarController.changeView(index),
         style: TabStyle.titled,
+        backgroundColor: Colors.blueAccent,
         items: [
           TabItem(
             title: 'Widgets',
