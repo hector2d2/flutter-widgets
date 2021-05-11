@@ -29,17 +29,25 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.3
   
+  # Check internet
   connectivity: ^3.0.3
   
+  # Management state
   flutter_bloc: ^7.0.0
   
+  # picker image from camera and gallery
   image_picker: ^0.7.4
 
+  # Management state
   get: ^4.1.4
 
+  # FingerPrint
   local_auth: ^1.1.5
   
+  # AppbarBottom
   convex_bottom_bar: ^3.0.0
+
+  # Encript words
   encrypt: ^5.0.0
 
 dev_dependencies:
