@@ -10,13 +10,6 @@ class HomeView extends StatelessWidget {
     print('build home');
     BottomNavBarController navBarController = Get.put(BottomNavBarController());
     return Scaffold(
-      appBar: AppBar(
-        title: Obx(
-          () => Text(
-            navBarController.titleView.value,
-          ),
-        ),
-      ),
       body: Obx(
         () => IndexedStack(
           index: navBarController.indexView.value,
@@ -48,42 +41,68 @@ class HomeView extends StatelessWidget {
   }
 
   Widget _widgets() {
-    return ListView(
-      children: [
-        _listItem(
-          title: 'test',
-          icon: Icons.enhanced_encryption,
-          onTap: () {
-            // Get.toNamed('encryption');
-          },
+    return CustomScrollView(
+      slivers: [
+        SliverAppBar(
+          title: Text(
+            'Widgets',
+          ),
+          // expandedHeight: 200,
+          floating: true,
+        ),
+        SliverList(
+          delegate: SliverChildListDelegate(
+            [
+              _listItem(
+                title: 'test',
+                icon: Icons.enhanced_encryption,
+                onTap: () {
+                  // Get.toNamed('encryption');
+                },
+              ),
+            ],
+          ),
         ),
       ],
     );
   }
 
   Widget _package() {
-    return ListView(
-      children: [
-        _listItem(
-          title: 'Encriptacion',
-          icon: Icons.enhanced_encryption,
-          onTap: () {
-            Get.toNamed('encryption');
-          },
+    return CustomScrollView(
+      slivers: [
+        SliverAppBar(
+          title: Text(
+            'Packages',
+          ),
+          // expandedHeight: 200,
+          floating: true,
         ),
-        _listItem(
-          title: 'Image Picked',
-          icon: Icons.image,
-          onTap: () {
-            Get.toNamed('images');
-          },
-        ),
-        _listItem(
-          title: 'Sign In',
-          icon: Icons.people,
-          onTap: () {
-            Get.toNamed('signIn');
-          },
+        SliverList(
+          delegate: SliverChildListDelegate(
+            [
+              _listItem(
+                title: 'Encriptacion',
+                icon: Icons.enhanced_encryption,
+                onTap: () {
+                  Get.toNamed('encryption');
+                },
+              ),
+              _listItem(
+                title: 'Image Picked',
+                icon: Icons.image,
+                onTap: () {
+                  Get.toNamed('images');
+                },
+              ),
+              _listItem(
+                title: 'Sign In',
+                icon: Icons.people,
+                onTap: () {
+                  Get.toNamed('signIn');
+                },
+              ),
+            ],
+          ),
         ),
       ],
     );
