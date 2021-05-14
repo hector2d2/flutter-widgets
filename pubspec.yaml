@@ -50,6 +50,12 @@ dependencies:
   # Encript words
   encrypt: ^5.0.0
 
+  # firebase Auth
+  firebase_auth: ^1.1.4
+
+  # init firebase
+  firebase_core: ^1.1.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

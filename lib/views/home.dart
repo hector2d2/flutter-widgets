@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 
 import 'package:widgets/controllers/bottom_navbar.dart';
+import 'package:widgets/styles/colors.dart';
+import 'package:widgets/widgets/btn_fat.dart';
 
 class HomeView extends StatelessWidget {
   @override
@@ -71,11 +73,13 @@ class HomeView extends StatelessWidget {
   Widget _widgets() {
     return ListView(
       children: [
-        _listItem(
-          title: 'test',
-          icon: Icons.enhanced_encryption,
-          onTap: () {
-            // Get.toNamed('encryption');
+        ButtonFat(
+          color1: getColorStyle(),
+          color2: getColorStyle(),
+          icon: Icons.access_alarm,
+          texto: 'Alarm',
+          onPress: () {
+            print('hola mundo');
           },
         ),
       ],
@@ -85,41 +89,41 @@ class HomeView extends StatelessWidget {
   Widget _package() {
     return ListView(
       children: [
-        _listItem(
-          title: 'Encriptacion',
+        ButtonFat(
+          color1: getColorStyle(),
+          color2: getColorStyle(),
           icon: Icons.enhanced_encryption,
-          onTap: () {
+          texto: 'Encriptacion',
+          onPress: () {
             Get.toNamed('encryption');
           },
         ),
-        _listItem(
-          title: 'Image Picked',
-          icon: Icons.image,
-          onTap: () {
-            Get.toNamed('images');
-          },
-        ),
-        _listItem(
-          title: 'Sign In',
+        ButtonFat(
+          color1: getColorStyle(),
+          color2: getColorStyle(),
           icon: Icons.people,
-          onTap: () {
+          texto: 'Sign In',
+          onPress: () {
             Get.toNamed('signIn');
           },
         ),
+        ButtonFat(
+          color1: getColorStyle(),
+          color2: getColorStyle(),
+          icon: Icons.image,
+          texto: 'Image Picked',
+          onPress: () {
+            Get.toNamed('images');
+          },
+        ),
+        ButtonFat(
+          color1: getColorStyle(),
+          color2: getColorStyle(),
+          icon: Icons.connect_without_contact,
+          texto: 'Local connection',
+          onPress: () {},
+        ),
       ],
-    );
-  }
-
-  Widget _listItem({
-    String? title,
-    IconData? icon,
-    Function? onTap,
-  }) {
-    return ListTile(
-      title: Text(title!),
-      leading: Icon(icon),
-      trailing: Icon(Icons.arrow_forward_ios),
-      onTap: () => onTap!(),
     );
   }
 }
