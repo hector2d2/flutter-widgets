@@ -7,24 +7,31 @@ class SignInView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Sign In'),
-      ),
-      body: Column(
-        children: [
-          Text(
-            'Sign In',
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+              'assets/dia.jpeg',
+            ),
+            fit: BoxFit.cover,
           ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          localAuthController.fingerPrintAuth();
-        },
-        child: Icon(
-          Icons.fingerprint,
         ),
+        // child: Column(
+        //   children: [
+        //     Text(
+        //       'Sign In',
+        //     ),
+        //   ],
+        // ),
       ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     localAuthController.fingerPrintAuth();
+      //   },
+      //   child: Icon(
+      //     Icons.fingerprint,
+      //   ),
+      // ),
     );
   }
 }
